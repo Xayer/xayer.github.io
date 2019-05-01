@@ -1,35 +1,41 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nuxt-portfolio
-      </h1>
-      <h2 class="subtitle">
-        portfolio using Nuxt&#39;s static page generator
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+  <div>
+    <section class="container">
+      <card-list></card-list>
+    </section>
+    <section class="container">
+      <div>
+        <logo />
+        <h1 class="title">
+          nuxt-components
+        </h1>
+        <h2 class="subtitle">
+          My perfect Nuxt.js project
+        </h2>
+        <div class="links">
+          <a href="https://nuxtjs.org/" target="_blank" class="button--green"
+            >Documentation</a
+          >
+          <a
+            href="https://github.com/nuxt/nuxt.js"
+            target="_blank"
+            class="button--grey"
+            >GitHub</a
+          >
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import CardList from '~/components/CardList.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    CardList
   }
 }
 </script>
