@@ -33,10 +33,6 @@ export default {
         {
           name: 'Trains',
           image: 'https://source.unsplash.com/1600x900/?train'
-        },
-        {
-          name: 'Jonas',
-          image: 'https://source.unsplash.com/1600x900/?tech'
         }
       ]
     }
