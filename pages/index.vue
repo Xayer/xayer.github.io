@@ -3,7 +3,7 @@
     <section class="container">
       <card-list></card-list>
     </section>
-    <section class="container">
+    <!-- <section class="container">
       <div>
         <logo />
         <h1 class="title">
@@ -24,7 +24,7 @@
           >
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -34,7 +34,7 @@ import CardList from '~/components/CardList.vue'
 
 export default {
   components: {
-    Logo,
+    // Logo,
     CardList
   }
 }
