@@ -2,7 +2,15 @@
   <article class="card">
     <a @click.prevent.stop="toggleOpen($event)" v-text="name"></a>
     <figure>
-      <img :src="image" alt="" />
+      <img
+        :src="image"
+        alt=""
+        smooth-parallax=""
+        start-movement="0"
+        :start-position-y="0"
+        :end-position-y="0.75 * multiplier"
+        container=".cards"
+      />
     </figure>
   </article>
 </template>
@@ -20,6 +28,11 @@ export default {
     image: {
       default: '',
       type: String,
+      required: false
+    },
+    multiplier: {
+      default: 1,
+      type: Number,
       required: false
     }
   },
@@ -88,4 +101,6 @@ export default {
 
 .close
   grid-column: span 1
+  a
+    transform: rotateZ(90deg);
 </style>

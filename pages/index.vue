@@ -3,27 +3,15 @@
     <section class="container">
       <card-list></card-list>
     </section>
-    <section class="container">
-      <div>
-        <logo />
-        <h1 class="title">
-          nuxt-components
-        </h1>
-        <h2 class="subtitle">
-          My perfect Nuxt.js project
-        </h2>
-        <div class="links">
-          <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-            >Documentation</a
-          >
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            class="button--grey"
-            >GitHub</a
-          >
-        </div>
-      </div>
+    <section
+      class="container parallax"
+      style="height: 100vh;"
+      smooth-parallax=""
+      :start-movement="-1"
+      end-position-y="2"
+      start-position-y="-1"
+    >
+      <logo />
     </section>
   </div>
 </template>
@@ -40,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -48,6 +36,15 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  &.parallax {
+    background-image: linear-gradient(
+      -180deg,
+      #268bd2 0%,
+      #c5e0e8 21%,
+      #f0f2e4 41%,
+      #032833 82%
+    );
+  }
 }
 
 .title {

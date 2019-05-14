@@ -6,7 +6,14 @@
     <div class="Triangle Triangle--four" />
   </div>
 </template>
-
+<script>
+const SmoothParallax = require('smooth-parallax')
+export default {
+  mounted() {
+    SmoothParallax.init()
+  }
+}
+</script>
 <style>
 .VueToNuxtLogo {
   display: inline-block;

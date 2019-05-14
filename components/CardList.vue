@@ -5,6 +5,7 @@
       :key="`${card.name}_${index}`"
       :name="card.name"
       :image="card.image"
+      :multiplier="index + 1"
     ></card>
   </section>
 </template>

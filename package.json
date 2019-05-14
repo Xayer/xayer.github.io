@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-components",
+  "name": "nuxtfolio",
   "version": "1.0.0",
   "description": "My perfect Nuxt.js project",
   "author": "Frederik Rabøl",
@@ -48,6 +48,7 @@
     "pug": "2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
+    "smooth-parallax": "^1.1.2",
     "vue-jest": "^3.0.3"
   }
 }
