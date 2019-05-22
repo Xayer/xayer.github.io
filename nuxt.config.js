@@ -3,7 +3,21 @@ const pkg = require('./package')
 module.exports = {
   mode: 'universal',
 
-  router: { base: '/' },
+  router: {
+    base: '/',
+    routes: [
+      {
+        name: 'index',
+        path: '/',
+        component: 'pages/index.vue'
+      },
+      {
+        name: 'debug',
+        path: '/debug',
+        component: 'pages/debug.vue'
+      }
+    ]
+  },
 
   /*
    ** Headers of the page
