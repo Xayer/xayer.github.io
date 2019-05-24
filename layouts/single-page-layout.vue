@@ -44,9 +44,6 @@ body {
   @media screen and (min-width: 320px) {
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
-  @media screen and (min-width: 1000px) {
-    font-size: 22px;
-  }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -56,7 +53,14 @@ body {
 main {
   align-items: center;
   justify-items: center;
-  background-color: $darkest;
+  //background-color: $darkest;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(50%, #263238),
+    color-stop(50%, #37424b)
+  );
 }
 
 main,
@@ -142,7 +146,7 @@ section {
     margin: 0;
     align-self: center;
     justify-self: center;
-    font-size: 2rem;
+    font-size: 125%;
     text-align: center;
     text-transform: uppercase;
     z-index: 2;
@@ -257,9 +261,10 @@ footer {
     display: grid;
     padding: 1rem 0;
     font-size: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    align-items: center;
+    grid-template-rows: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: left;
+    align-items: start;
     grid-gap: 0.5rem;
     span {
       text-transform: uppercase;
@@ -267,29 +272,21 @@ footer {
     }
     a {
       color: $footer-text;
-      grid-template-columns: 1fr;
       display: grid;
+      grid-template-columns: 1rem 1fr;
+      grid-column-gap: 0.5rem;
       align-items: center;
+      justify-items: start;
+      &:hover,
+      &:hover svg {
+        color: lighten($footer-text, 15);
+      }
       svg {
+        align-self: center;
+        justify-self: center;
         color: $footer-text;
         width: 1.5rem;
         height: 1.5rem;
-      }
-      &:before {
-        content: '';
-        order: 3;
-        width: 0%;
-        height: 2px;
-        background-color: darken($cobber, 15);
-        transition: 0.25s all;
-        justify-self: left;
-      }
-      &:hover {
-        transition: 0.25s all;
-        color: $cobber;
-        &:before {
-          width: 100%;
-        }
       }
     }
   }

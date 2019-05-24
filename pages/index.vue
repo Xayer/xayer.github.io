@@ -27,12 +27,17 @@
       </article>
     </section>
     <footer>
-      <span>Frederik Rabøl</span>
-      <!--nav>
-      <span>Projects</span>
-      <a v-for="footerLink in projects" :href="footerLink.link" v-text="footerLink.title"></a>
-    </nav-->
       <nav>
+        <span>Frederik Rabøl</span>
+        <a
+          v-for="footerLink in projects"
+          :key="footerLink.title"
+          :href="footerLink.link"
+          v-text="footerLink.title"
+        ></a>
+      </nav>
+      <nav>
+        <span>Contact</span>
         <a
           v-for="footerLink in contact"
           :key="footerLink.title"
@@ -41,6 +46,7 @@
           <svg class="icon">
             <use :xlink:href="`#${footerLink.title}`"></use>
           </svg>
+          {{ footerLink.title }}
         </a>
       </nav>
     </footer>
@@ -100,7 +106,7 @@ export default {
         },
         {
           title: 'email',
-          link: 'mailto:frederik-rm@hotmail.com'
+          link: '//mailto:frederik-rm@hotmail.com'
         },
         {
           title: 'linkedin',
