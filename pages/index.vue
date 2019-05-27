@@ -51,14 +51,19 @@
       </nav>
     </footer>
     <svg-icons></svg-icons>
+    <portal to="progress-bar">
+      <progress-bar element="#app"></progress-bar>
+    </portal>
   </main>
 </template>
 <script>
-import SvgIcons from '~/components/svg.vue'
+import svgIcons from '~/components/svg.vue'
+import progressBar from '~/components/ScrollProgressBar.vue'
 export default {
   layout: 'single-page-layout',
   components: {
-    SvgIcons
+    svgIcons,
+    progressBar
   },
   data: function() {
     return {

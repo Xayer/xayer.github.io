@@ -1,5 +1,6 @@
 <template>
   <div>
+    <portal-target name="progress-bar" slim></portal-target>
     <nuxt />
   </div>
 </template>
