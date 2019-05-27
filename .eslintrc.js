@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'nuxt/no-cjs-in-config': 'off',
     'no-unused-vars': 'off',
+    'no-console': 'off',
     "prettier/prettier": ["error", {
      "endOfLine":"auto"
    }],
