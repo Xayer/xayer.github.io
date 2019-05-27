@@ -55,13 +55,16 @@ main {
   align-items: center;
   justify-items: center;
   //background-color: $darkest;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(50%, #263238),
-    color-stop(50%, #37424b)
-  );
+  background-image: linear-gradient(0deg, #263238 50%, #37424b 50%);
+  @media screen and (min-width: 430px) {
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(50%, #263238),
+      color-stop(50%, #37424b)
+    );
+  }
 }
 
 main,
@@ -228,6 +231,7 @@ section {
         grid-template-columns: 1fr;
         grid-template-rows: 2fr;
         display: grid;
+        text-align: center;
         align-items: center;
         justify-items: center;
         &:before {
@@ -253,17 +257,22 @@ section {
 
 footer {
   color: $footer-text;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  grid-gap: 2.5rem;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 430px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 2.5rem;
+  }
+  align-items: start;
+  grid-gap: 1rem;
   display: grid;
   padding: 1rem 0;
   nav {
     display: grid;
     font-size: 1.5rem;
     grid-template-rows: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    justify-items: start;
+    justify-content: start;
+    //grid-template-rows: repeat(4, 1fr);
     grid-gap: 0.5rem;
 
     span {
