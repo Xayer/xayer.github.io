@@ -66,6 +66,13 @@ export default {
     svgIcons,
     progressBar
   },
+  metaInfo: {
+    title: 'Portfolio',
+    titleTemplate: '%s - Frederik Rabøl',
+    htmlAttrs: {
+      lang: 'en'
+    }
+  },
   data: function() {
     return {
       workplaces: [

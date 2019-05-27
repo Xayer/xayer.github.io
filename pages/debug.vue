@@ -32,6 +32,13 @@
 <script>
 import { get } from 'lodash'
 export default {
+  metaInfo: {
+    title: 'Debug Page',
+    titleTemplate: '%s - Frederik Rabøl',
+    htmlAttrs: {
+      lang: 'en'
+    }
+  },
   head() {
     return {
       link: [
@@ -134,9 +141,14 @@ export default {
       }
       try {
         const notification = new Notification(message)
-      } catch (err) {
-        alert('Notification API error: ' + err)
+      } catch (err) {}
+      if (!('ServiceWorkerRegistration' in window)) {
+        console.log('ServiceWorkerRegistration API not supported!')
+        return
       }
+      try {
+        ServiceWorkerRegistration.showNotification(message)
+      } catch (err) {}
     },
     setupOnlineDetection() {
       const self = this
