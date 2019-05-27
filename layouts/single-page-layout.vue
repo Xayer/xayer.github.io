@@ -254,19 +254,18 @@ section {
 footer {
   color: $footer-text;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
   align-items: center;
-  grid-gap: 1rem;
+  grid-gap: 2.5rem;
   display: grid;
+  padding: 1rem 0;
   nav {
     display: grid;
-    padding: 1rem 0;
     font-size: 1.5rem;
     grid-template-rows: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    justify-items: left;
-    align-items: start;
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: start;
     grid-gap: 0.5rem;
+
     span {
       text-transform: uppercase;
       color: lighten($footer-text, 25);
@@ -274,7 +273,9 @@ footer {
     a {
       color: $footer-text;
       display: grid;
-      grid-template-columns: 1rem 1fr;
+      &.has--icon {
+        grid-template-columns: 0.25fr 1fr;
+      }
       grid-column-gap: 0.5rem;
       align-items: center;
       justify-items: start;

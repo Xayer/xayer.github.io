@@ -41,6 +41,7 @@
         <a
           v-for="footerLink in contact"
           :key="footerLink.title"
+          class="has--icon"
           :href="footerLink.link"
         >
           <svg class="icon">
