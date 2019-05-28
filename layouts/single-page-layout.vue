@@ -55,14 +55,18 @@ main {
   align-items: center;
   justify-items: center;
   //background-color: $darkest;
-  background-image: linear-gradient(0deg, #263238 50%, #37424b 50%);
+  background-image: linear-gradient(
+    0deg,
+    darken($darkest, 2.5) 50%,
+    darken($darkest, 5) 50%
+  );
   @media screen and (min-width: 430px) {
     background: -webkit-gradient(
       linear,
       left top,
       right top,
-      color-stop(50%, #263238),
-      color-stop(50%, #37424b)
+      color-stop(50%, darken($darkest, 2.5)),
+      color-stop(50%, darken($darkest, 5))
     );
   }
 }
@@ -280,7 +284,7 @@ footer {
       color: lighten($footer-text, 25);
     }
     a {
-      color: $footer-text;
+      color: lighten($dark, 25);
       display: grid;
       &.has--icon {
         grid-template-columns: 0.25fr 1fr;
@@ -290,12 +294,11 @@ footer {
       justify-items: start;
       &:hover,
       &:hover svg {
-        color: lighten($footer-text, 15);
+        color: lighten($dark, 30);
       }
       svg {
         align-self: center;
         justify-self: center;
-        color: $footer-text;
         width: 1.5rem;
         height: 1.5rem;
       }
