@@ -15,6 +15,11 @@ module.exports = {
         name: 'debug',
         path: '/debug',
         component: 'pages/debug.vue'
+      },
+      {
+        name: 'feed',
+        path: '/feed',
+        component: 'pages/feed.vue'
       }
     ]
   },
@@ -54,7 +59,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    'portal-vue/nuxt'
+    'portal-vue/nuxt',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
@@ -80,6 +86,12 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    },
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ['@babel/plugin-proposal-class-properties', { loose: true }]
+      ]
     }
   }
 }
