@@ -20,6 +20,11 @@ module.exports = {
         name: 'feed',
         path: '/feed',
         component: 'pages/feed.vue'
+      },
+      {
+        name: 'bus',
+        path: '/bus',
+        component: 'pages/bus.vue'
       }
     ]
   },
