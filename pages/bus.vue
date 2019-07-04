@@ -33,7 +33,13 @@ export default {
 }
 iframe {
   max-width: 100vw;
-  min-width: 37vw;
   height: 100vh;
+  width: 100vw;
+  @media screen and (min-width: 768px) {
+    width: 50vw;
+  }
+  @media screen and (min-width: 1166px) {
+    width: 37vw;
+  }
 }
 </style>
