@@ -11,6 +11,10 @@ export default {
       return '//www.rejseplanen.dk/bin/help.exe/mn?L=vs_tus.vs_new&tpl=monitor&station=461682600@461682300&display=horizontal&p1=bus'
     }
   },
+  metaInfo: {
+    title: 'Time Table for Emil Neckelmanns Vej',
+    titleTemplate: '%s - Frederik Rabøl'
+  },
   head() {
     return {
       link: [
