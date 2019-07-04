@@ -8,7 +8,7 @@
 export default {
   computed: {
     busUrl() {
-      return 'http://www.rejseplanen.dk/bin/help.exe/mn?L=vs_tus.vs_new&tpl=monitor&station=461682600@461682300&display=horizontal&p1=bus'
+      return '//www.rejseplanen.dk/bin/help.exe/mn?L=vs_tus.vs_new&tpl=monitor&station=461682600@461682300&display=horizontal&p1=bus'
     }
   },
   head() {
