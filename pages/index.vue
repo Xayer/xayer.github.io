@@ -166,7 +166,7 @@ $header-color: #ff5e00;
 $cobber: #ff5e00;
 $footer-text: #7d92ac;
 $header-bg: 'https://images.unsplash.com/photo-1519071538632-dd0814a805c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
-$workplace-bg: 'https://images.unsplash.com/photo-1545182372-a341a55503ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80';
+$workplace-bg: '/images/bonfire.jpg';
 
 body {
   font-family: 'Barlow';
@@ -286,6 +286,9 @@ section {
     font-size: 125%;
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 0px 5px darken($cobber, 25), 0px 5px darken($cobber, 25),
+      0px 4px darken($cobber, 25), 0px 3px darken($cobber, 25),
+      0px 2px darken($cobber, 25), 0px 1px darken($cobber, 25);
     z-index: 2;
   }
   &#workplaces {
