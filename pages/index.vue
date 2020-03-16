@@ -26,45 +26,23 @@
         <span v-text="workplace.to"></span>
       </article>
     </section>
-    <footer>
-      <nav>
-        <span>Frederik Rabøl</span>
-        <a
-          v-for="footerLink in projects"
-          :key="footerLink.title"
-          :href="footerLink.link"
-          v-text="footerLink.title"
-        ></a>
-      </nav>
-      <nav>
-        <span>Contact</span>
-        <a
-          v-for="footerLink in contact"
-          :key="footerLink.title"
-          class="has--icon"
-          :href="footerLink.link"
-        >
-          <svg class="icon">
-            <use :xlink:href="`#${footerLink.title}`"></use>
-          </svg>
-          {{ footerLink.title }}
-        </a>
-      </nav>
-    </footer>
-    <svg-icons></svg-icons>
+    <Slider :items="projects" />
+    <Footer />
     <portal to="progress-bar">
       <progress-bar element="#app"></progress-bar>
     </portal>
   </main>
 </template>
 <script>
-import svgIcons from '~/components/svg.vue'
 import progressBar from '~/components/ScrollProgressBar.vue'
+import Slider from '~/components/slider/Slider'
+import Footer from '~/components/Footer'
 export default {
   layout: 'single-page-layout',
   components: {
-    svgIcons,
-    progressBar
+    progressBar,
+    Slider,
+    Footer
   },
   metaInfo: {
     title: 'Portfolio',
@@ -112,24 +90,13 @@ export default {
           link: 'http://annijor.no'
         }
       ],
-      contact: [
-        {
-          title: 'codepen',
-          link: 'https://codepen.io/xayer'
-        },
-        {
-          title: 'email',
-          link: '//mailto:frederik-rm@hotmail.com'
-        },
-        {
-          title: 'linkedin',
-          link: 'https://www.linkedin.com/in/frederikrabol/'
-        }
-      ],
       projects: [
         {
-          title: 'BrickyPlace',
-          link: 'https://brickyplace.rabol.co'
+          title: 'Bricky Place',
+          description: 'LEGO Blog for my creative outlet.',
+          url: 'https://brickyplace.rabol.co',
+          image:
+            'https://images.prismic.io/brickyplace-blog/aa251e2f-e221-4d96-b164-2b5847e6f6db_86262197_562977127620761_3270037165433683968_n.jpg'
         }
       ]
     }
@@ -156,17 +123,16 @@ export default {
 }
 </script>
 <style lang="scss">
-$link: #395a80;
+$link: #426b99;
 $dark: darken(#25354f, 14);
 $darker: darken($dark, 5);
 $mid: #2a3d59;
 $border: #333;
 $darkest: #1a2432;
-$header-color: #ff5e00;
-$cobber: #ff5e00;
-$footer-text: #7d92ac;
-$header-bg: 'https://images.unsplash.com/photo-1519071538632-dd0814a805c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
-$workplace-bg: '/images/bonfire.jpg';
+$header-color: #ef7905;
+$cobber: #ef7905;
+$header-bg: 'https://images.unsplash.com/photo-1583331989229-9cc35b3e3423?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80';
+$workplace-bg: 'https://images.unsplash.com/photo-1583331989262-61e96eb9b706?ixlib=rb-1.2.1&auto=format&fit=crop&auto=format&fit=crop&w=1920&q=80';
 
 body {
   font-family: 'Barlow';
@@ -178,26 +144,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  --slider-text: #{$link};
+  --slider-bg: #{$dark};
+  --slider-bg-alt: #{lighten($dark, 5)};
+  --slider-text-hover: #{$cobber};
+  --footer-text: #{$link};
+  --footer-text-hover: #{$cobber};
+  --footer-bg: #{$dark};
 }
 
 main {
   align-items: center;
   justify-items: center;
-  //background-color: $darkest;
-  background-image: linear-gradient(
-    0deg,
-    darken($darkest, 2.5) 50%,
-    darken($darkest, 5) 50%
-  );
-  @media screen and (min-width: 430px) {
-    background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      color-stop(50%, darken($darkest, 2.5)),
-      color-stop(50%, darken($darkest, 5))
-    );
-  }
+  background-color: $darker;
 }
 
 main,
@@ -220,8 +179,9 @@ header {
   position: relative;
   background-image: url($header-bg);
   background-size: cover;
+  background-position: center;
   &:before {
-    background: -webkit-linear-gradient(270deg, transparent 75%, $darker 100%);
+    background: -webkit-linear-gradient(270deg, transparent 75%, $dark 100%);
     content: '';
     z-index: 1;
     position: absolute;
@@ -231,6 +191,7 @@ header {
   h1 {
     z-index: 2;
     font-size: 3rem;
+    text-shadow: 0 0 4px #000, 0 0 4px $cobber;
   }
   h1,
   a,
@@ -286,9 +247,7 @@ section {
     font-size: 125%;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 0px 5px darken($cobber, 25), 0px 5px darken($cobber, 25),
-      0px 4px darken($cobber, 25), 0px 3px darken($cobber, 25),
-      0px 2px darken($cobber, 25), 0px 1px darken($cobber, 25);
+    text-shadow: 0 0 4px #000, 0 0 4px $cobber;
     z-index: 2;
   }
   &#workplaces {
@@ -300,13 +259,14 @@ section {
     position: relative;
     background-image: url($workplace-bg);
     background-size: cover;
+    background-position: center;
     &:before {
       background: -webkit-linear-gradient(
         270deg,
         $dark 0%,
         transparent 10%,
         transparent 80%,
-        $darker 100%
+        $dark 100%
       );
       content: '';
       z-index: 1;
@@ -338,7 +298,7 @@ section {
   &#work {
     padding: 10vh 0;
     grid-gap: 0.5rem;
-    background: -webkit-linear-gradient(270deg, $darker 0%, $dark 35%);
+    background: $dark;
     min-height: calc(346px - 10vh * 2);
     height: calc(100vh - 10vh * 2);
     grid-template-rows: 2rem 1fr;
@@ -386,53 +346,6 @@ section {
             width: 100%;
           }
         }
-      }
-    }
-  }
-}
-
-footer {
-  color: $footer-text;
-  grid-template-columns: 1fr;
-  @media screen and (min-width: 430px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-gap: 2.5rem;
-  }
-  align-items: start;
-  grid-gap: 1rem;
-  display: grid;
-  padding: 1rem 0;
-  nav {
-    display: grid;
-    font-size: 1.5rem;
-    grid-template-rows: 1fr;
-    justify-content: start;
-    //grid-template-rows: repeat(4, 1fr);
-    grid-gap: 0.5rem;
-
-    span {
-      text-transform: uppercase;
-      color: lighten($footer-text, 25);
-    }
-    a {
-      color: lighten($dark, 25);
-      display: grid;
-      &.has--icon {
-        grid-template-columns: 0.25fr 1fr;
-      }
-      grid-column-gap: 0.5rem;
-      align-items: center;
-      justify-items: start;
-      &:hover,
-      &:hover svg {
-        color: lighten($dark, 30);
-      }
-      svg {
-        align-self: center;
-        justify-self: center;
-        width: 1.5rem;
-        height: 1.5rem;
       }
     }
   }
