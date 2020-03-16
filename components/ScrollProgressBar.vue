@@ -59,7 +59,7 @@ export default {
     left: 0;
     position: fixed;
     width: calc(var(--progress) * 1%);
-    background-color: darken(#ff5e00, 10);
+    background-color: #ef7905;
     height: 5px;
     display: inline-block;
     transition: width 0.1s ease;
